@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Import Vega & Vega-Lite -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <!-- CSS file -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+    <div class="page">
+      <h1>Global COVID-19 Analysis</h1>
+      <div class="content">
+        <h2>Introduction</h2>
+        <p>
+          The Covid-19 pandemic began around 2020 and is still currently ongoing
+          till this very day. It is safe to say that covid has impacted the lives 
+          of almost every single person on the planet, in more than one way. The 
+          aim of this visualization is to anaylze and identify trends and patterns
+          of Covid-19 up to the present day. 
+        </p>
+      </div>
+      <div class="description">
+        <div class="section">
+          <h2>Total Covid-19 Cases In Every country</h2>
+          <div class="vis-container" id="vis1"></div>
+          <p>
+            The total number of cases in each country is represented using this 
+            choropleth map. The darker coloured areas on the map represents countries
+            in the world where there high numbers of cases of COVID-19. On the other
+            hand, lighter coloured areas on the map indicate lower number of cases
+            in that particular country. A filter to obtain a specific range of 
+            population was also included at the bottom left of the graph.
+          </p>
+        </div>
+        <div class="section">
+          <h2>Number of Confirmed Cases vs Number of Deaths</h2>
+          <div class="vis-container" id="vis2"></div>
+          <p>
+            From the bubbleplot, we can observe that there is a positive correlation
+            between the number of confirmed COVID-19 cases and the total number 
+            of deaths. Countries like the United States, India, and Brazil all have
+            a very high number of deaths and number of confirmed cases. This might 
+            also be due to the vast population that each of these countries have. 
+          </p>
+        </div>
+        <div class="section">
+          <h2>Total Number of Vaccinations In Each Country</h2>
+          <div class="vis-container" id="vis3"></div>
+          <p>
+            As indicated by the map figure, the total number of vaccinations in every
+            country is represented by a circular mark, and varies in size according
+            to the number of vaccinations in that particular country. We can observe 
+            that India has the highest number of vaccinations, and this might be 
+            because the fact that they have a large population of citizens.
+          </p>
+        </div>
+        <div class="section">
+          <h2>Negative Impacts of COVID-19</h2>
+          <div class="vis-container" id="vis4"></div>
+          <p>
+            As shown in the pie-chart, these are 4 examples of how COVID-19 has 
+            negatively impacted the people all around the world. It can be seen that 
+            COVID-19 has caused many people to be extreme poverty due to the loss of
+            jobs. The pandemic has also caused people to have more health diseases
+            such as cardiovascular diseases and diabetes. The last factor, smoking, 
+            might have been used as a coping mechanism for many stressed individuals, 
+            causing the number of smokers to rise all around the world.
+          </p>
+        </div> 
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+    var choroplethVis = "./js/choropleth.vl.json";
+    var bubbleVis = "./js/bubbleplot.vl.json";
+    var mapVis = "./js/map.vl.json";
+    var pieVis = "./js/piechart.vl.json";
+
+
+  
+    vegaEmbed('#vis1', choroplethVis, {"actions": false}).then(function(result) {
+    }).catch(console.error);
+    
+     vegaEmbed('#vis2', bubbleVis, {"actions": false}).then(function(result) {
+    }).catch(console.error);
+    
+    vegaEmbed('#vis3', mapVis, {"actions": false}).then(function(result) {
+    }).catch(console.error);
+    
+    vegaEmbed('#vis4', pieVis, {"actions": false}).then(function(result) {
+    }).catch(console.error);
+    
+</script>
