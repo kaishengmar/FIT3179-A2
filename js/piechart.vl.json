@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Negative Impacts caused by COVID-19",
+  "data": {
+    "values": [
+      {"category": "Cardiovascular Disease", "value": 1.5},
+      {"category": "Extreme Poverty", "value": 3.5},
+      {"category": "Diabetes Prevalence", "value": 2},
+      {"category": "Smoking", "value": 1}
+    ]
+  },
+  "mark": {"type": "arc"},
+  "encoding": {
+    "theta": {
+      "field": "value",
+      "type": "quantitative",
+      "scale": {"range": [2, 8.5]}
+    },
+    "color": {
+      "field": "category",
+      "title": "Negative Impacts",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Diabetes Prevalence",
+          "Cardiovascular Disease",
+          "Extreme Poverty",
+          "Smoking"
+        ],
+        "range": ["#490092", "#ff6db6", "#b66dff", "#ffb6db"]
+      },
+      "legend": {"orient": "right"}
+    }
+  },
+  "config": {}
+}
