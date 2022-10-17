@@ -35,7 +35,7 @@
   ],
   "layer": [
     {
-      "mark": {"type": "geoshape"},
+      "mark": {"type": "geoshape", "stroke": "white"},
       "encoding": {
         "color": {
           "field": "Cases_per_million",
