@@ -1,5 +1,39 @@
-body {
-    background-color:#f0eae4;
+* {
+    font-family: 'Trebuchet MS';
+  }
+
+  body {
+    background-color:#f1e8de;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-family: 'Trebuchet MS';
     color: #000000;
-}
+  }
+
+  .page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    width: 1000px;
+    margin-bottom: 10vh;
+  }
+
+  .description {
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 950px;
+  }
+
+  .section {
+    padding: 10px;
+  }
+
+  .visualization{
+    width: 100%;
+  }
+  
