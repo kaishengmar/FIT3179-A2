@@ -1,0 +1,99 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": 725,
+    "height": 500,
+    "title": "Confirmed Cases vs Number of Vaccinations Per Country",
+    "data": {
+      "url": "https://raw.githubusercontent.com/kaishengmar/FIT3179-A2/main/data/covid_data_filtered.csv"
+    },
+    "params": [
+      {
+        "name": "Confirmed_Cases",
+        "value": 0,
+        "bind": {
+          "input": "range",
+          "min": 0,
+          "max": 1000000,
+          "step": 1000,
+          "name": "Confirmed Cases: "
+        }
+      },
+      {
+        "name": "Vax_num",
+        "value": 0,
+        "bind": {
+          "input": "range",
+          "min": 0,
+          "max": 1000000,
+          "step": 1000,
+          "name": "Total Vaccinations: "
+        }
+      }
+    ],
+    "transform": [
+      {"filter": "datum.Confirmed > Confirmed_Cases"},
+      {"filter": "datum.Vaccinations > Vax_num"}
+    ],
+    "encoding": {
+      "x": {
+        "field": "Confirmed",
+        "type": "quantitative",
+        "title": "Confirmed Cases",
+        "axis": {"tickCount": 7},
+        "scale": {"type": "log", "domain": [1, 100000000000]}
+      },
+      "y": {
+        "field": "Vaccinations",
+        "type": "quantitative",
+        "title": "Number of Vaccinations",
+        "axis": {"tickCount": 6},
+        "scale": {"type": "log", "domain": [1, 10000000000]}
+      }
+    },
+    "layer": [
+      {
+        "mark": {"type" : "point", "filled" : true, "size": 100 },
+        "encoding": {
+          "color": {
+            "field": "Region",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "North America",
+                "South America",
+                "Africa",
+                "Asia",
+                "Europe",
+                "Oceania"
+              ],
+              "range": [
+                "#d55e00",
+                "#cc79a7",
+                "#0072b2",
+                "#009292",
+                "#b66dff",
+                "#b6dbff"
+              ]
+            }
+          },
+          "tooltip": [
+            {"field": "Country", "title": "Country Name", "type": "nominal"},
+            {"field": "Population", "type": "quantitative", "format": ","},
+            {
+              "field": "Confirmed",
+              "title": "Total Cases",
+              "type": "quantitative",
+              "format": ","
+            },
+            {
+              "field": "Vaccinations",
+              "title": "Total Vaccinations",
+              "type": "quantitative",
+              "format": ","
+            }
+          ]
+        }
+      }
+    ],
+    "config": {}
+  }
